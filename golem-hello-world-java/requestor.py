@@ -12,6 +12,8 @@ async def worker(context: WorkContext, tasks: AsyncIterable[Task]):
         script = context.new_script()
 
         # run the Provider.jar file
+        # you can also upload your jar at runtime
+        # script.upload_file("/path/to/your/jarfile.jar","/golem/work/jarfile.jar")
         future_result = script.run("/usr/bin/java", "-jar", "/Provider.jar")
 
         yield script
